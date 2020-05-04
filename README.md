@@ -11,6 +11,9 @@ https://gitlab.com/rocha.public/cursos/jenkins-em-larga-escala/-/wikis/home
 ## Atualizar Plugins
 * Entrar no txt de plugins e apartir dos apontamentos de atualização alterar as versões em cada um que necessita de atualização, e gerar uma nova imagem
 
+## Instalar o IntelliJ IDEA
+* https://www.jetbrains.com/pt-br/idea/download/#section=windows
+
 ## Plugins base recomendados para o jenkins
 * workflow-api:2.40
 * jira:3.0.13

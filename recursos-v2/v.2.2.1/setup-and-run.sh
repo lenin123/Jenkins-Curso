@@ -1,13 +1,14 @@
 #!/usr/bin/env bash
 
+# COLOQUE AQUI SEU USUARIO DOCKERHUB
 dockerhub_user=lmuller439
 
 jenkins_port=8080
 image_name=missao-devops-jenkins
-image_version=2.0.0
+image_version=2.2.1
 container_name=md-jenkins
 
-docker pull jenkins:2.112
+docker pull jenkins:2.230
 
 if [ ! -d downloads ]; then
     mkdir downloads
@@ -18,7 +19,7 @@ fi
 
 docker stop ${container_name}
 
-docker build --no-cache -t ${dockerhub_user}/${image_name}:${image_version} .
+docker build --no-cache -t ${dockerhub_user}/${image_name}:${image_version} . 
 
 if [ ! -d m2deps ]; then
     mkdir m2deps
@@ -31,9 +32,11 @@ if [ ! -d jobs ]; then
 fi
 
 docker run -p ${jenkins_port}:8080 \
-    -v `pwd`/downloads:/var/jenkins_home/downloads \
+    -e KUBERNETES_SERVER_URL='http://kubernetes:4433' \
+    -e JENKINS_SERVER_URL='http://jenkins:8080' \
     -v `pwd`/jobs:/var/jenkins_home/jobs/ \
     -v `pwd`/m2deps:/var/jenkins_home/.m2/repository/ \
     -v $HOME/.ssh:/var/jenkins_home/.ssh/ \
     --rm --name ${container_name} \
     ${dockerhub_user}/${image_name}:${image_version}
+

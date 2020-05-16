@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # COLOQUE AQUI SEU USUARIO DOCKERHUB
-dockerhub_user=rodrigogrohl
+dockerhub_user=lmuller439
 
 jenkins_port=8080
 image_name=missao-devops-jenkins

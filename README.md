@@ -1,4 +1,5 @@
 # CURSO DE JENKINS
+(É necessário corrigir alguns erros nos pacotes)
 
 ## Documentação passo a passo para utilização das pastas
 https://gitlab.com/rocha.public/cursos/jenkins-em-larga-escala/-/wikis/home
